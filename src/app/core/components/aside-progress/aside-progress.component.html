@@ -1,0 +1,51 @@
+<aside class="is-medium menu">
+    <p class="menu-label is-size-5">
+      Questions
+    </p>
+    <hr class="is-bordered">
+    <p *ngIf="quizProgressService.allQuestionsAnswered()"
+       class="is-size-6 mb-1 ml-1 has-text-weight-light">
+      Click on question to view correct answer.
+    </p>
+    @for (question of quizProgressService.quizQuestions(); track $index) {
+
+      @if (quizProgressService.allQuestionsAnswered()) {
+        <div class="message is-clickable is-hidden-mobile" (click)="reviewQuestion($index)"
+             [ngClass]="{
+             'is-success':  question.selectedAnswer === question.correct_answer,
+             'is-danger': question.selectedAnswer !== question.correct_answer}">
+          <div class="message-body">
+            <span [innerHTML]="question.question"></span>
+          </div>
+        </div>
+
+        <div class="tag is-medium is-hoverable m-1 is-hidden-tablet" (click)="reviewQuestion($index)"
+             [ngClass]="{'is-success':  question.selectedAnswer === question.correct_answer,
+             'is-danger': question.selectedAnswer !== question.correct_answer,
+             'selected-question': quizProgressService.reviewQuestionIndex() === $index}">
+          Question {{ $index + 1 }}
+        </div>
+
+
+      } @else {
+        <div class="message is-hidden-mobile" [ngClass]="{'is-dark': question.selectedAnswer }">
+          <div class="message-body">
+            @if (question.selectedAnswer) {
+              <span [innerHTML]="question.question"></span>
+            } @else {
+              Question {{ $index + 1 }}
+            }
+          </div>
+        </div>
+
+        <div class="tag is-medium is-hoverable m-1 is-hidden-tablet"
+             [ngClass]="{'is-primary is-light': question.selectedAnswer }">
+          Question {{ $index + 1 }}
+        </div>
+      }
+    }
+    <div class="is-hidden-mobile">
+      <hr class="is-bordered">
+      <button (click)="endQuiz()" class="button mt-6 is-danger is-large is-fullwidth">End Quiz</button>
+    </div>
+</aside>

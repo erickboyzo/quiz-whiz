@@ -1,6 +1,12 @@
 # QuizWhiz
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.5.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.5. This project was created as part of learning session to demonstrate the usage of Angular Signals for State Management. Entire application is using Signals to maintain the state of user started quiz. 
+
+## Tech Stack
+
+**Client:** Angular, [Bulma CSS](https://bulma.io/)
+
+**API:** [Open Trivia Database](https://opentdb.com/) 
 
 ## Development server
 
@@ -25,3 +31,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+

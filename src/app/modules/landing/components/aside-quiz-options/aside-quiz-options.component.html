@@ -1,0 +1,38 @@
+<label class="label mb-1">
+  Number of Questions
+</label>
+<div class="buttons has-addons">
+  @for (option of numberOfQuestion; track $index) {
+    <button class="button" [ngClass]="{'is-success is-selected': optionSelections.amount === option}"
+            (click)="selectNumberOfQuestions(option)"> {{ option }}
+    </button>
+  }
+</div>
+
+<label class="label mb-1">
+  Category
+</label>
+<div class="select is-medium is-fullwidth mb-5">
+  <select name="trivia_category"
+          class="form-control is-primary"
+          [(ngModel)]="optionSelections.category"
+          (change)="onChange()">
+    @for (option of categories; track $index) {
+      <option [value]="option.value" [innerHTML]="option.label"></option>
+    }
+  </select>
+</div>
+
+<label class="label mb-1">
+  Difficulty
+</label>
+<div class="is-fullwidth">
+  <div class="buttons has-addons">
+    @for (difficultyOption of difficultyOptions; track $index) {
+      <button class="button"
+              [ngClass]="{'is-success is-selected': optionSelections.difficulty === difficultyOption.value}"
+              (click)="selectDifficulty(difficultyOption.value)">{{ $index === 0 ? 'Any' : difficultyOption.label }}
+      </button>
+    }
+  </div>
+</div>

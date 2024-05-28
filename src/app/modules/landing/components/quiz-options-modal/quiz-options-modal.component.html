@@ -1,0 +1,16 @@
+<div class="modal is-active">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title mb-1">Quiz Options</p>
+      <button class="delete is-large" aria-label="close" (click)="close.emit()"></button>
+    </header>
+    <section class="modal-card-body">
+      <app-aside-quiz-options></app-aside-quiz-options>
+    </section>
+    <footer class="modal-card-foot is-flex">
+      <button class="button is-large is-success is-fullwidth" (click)="close.emit()">Done</button>
+    </footer>
+  </div>
+</div>
+

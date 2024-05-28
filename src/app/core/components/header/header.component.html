@@ -1,0 +1,14 @@
+<section class="hero background-color">
+  <div class="hero-body">
+    <div class="columns">
+      <div class="column is-12">
+        <div class="container content">
+          <h1 class="title ">{{title}}</h1>
+          <h3 *ngIf="!quizProgressService.quizInProgress()" class="subtitle has-text-weight-normal">
+           {{subTitle}}
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

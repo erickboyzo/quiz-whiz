@@ -1,0 +1,37 @@
+<div class="box" *ngIf="question">
+  <div class="is-flex is-justify-content-flex-end mb-4">
+    <span class="tag is-default is-primary mx-2" [innerHTML]="question.category"></span>
+    <span class="tag is-default is-info" [innerHTML]="question.difficulty"></span>
+  </div>
+
+  <h4 class="title is-3 is-flex">Question {{ questionNumber }}  <span class="ml-auto">
+  </span></h4>
+  <div class="is-size-3 mb-2" [innerHTML]="question.question"></div>
+  @for (item of question.allAnswers; track $index) {
+    @if (reviewMode) {
+      <div class="message"
+           [ngClass]="{
+           'is-success': question.correct_answer === item || question.selectedAnswer === item,
+           'is-danger': question.selectedAnswer === item && question.correct_answer !== item }">
+        <div class="message-body">
+          <div class="answer is-flex is-align-content-baseline">
+            <div><input type="checkbox" [disabled]="true" [checked]="question.selectedAnswer === item"/>
+            </div>
+            <span class="ml-2 is-size-4" [innerHTML]="item"></span>
+          </div>
+        </div>
+      </div>
+    } @else {
+      <div (click)="checkbox.click()" class="message is-clickable is-dark"
+           [ngClass]="{'is-info': question.selectedAnswer === item}">
+        <div class="message-body">
+          <div class="answer is-flex is-align-content-baseline">
+            <div><input #checkbox type="checkbox" [disabled]="reviewMode" [checked]="question.selectedAnswer === item"
+                        (change)="answerChange($event, item)"/></div>
+            <span class="ml-2 is-size-4" [innerHTML]="item"></span>
+          </div>
+        </div>
+      </div>
+    }
+  }
+</div>

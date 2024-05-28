@@ -1,0 +1,26 @@
+<h3 class="is-3 has-text-weight-normal is-flex is-justify-content-space-between">Results<span
+  class="is-size-4 is-hidden-tablet pt-3"><span>{{ quizProgressService.correctQuestions() }}
+  / {{ quizProgressService.totalNumberOfQuestions() }}</span><span
+  class="has-text-weight-bold"> ({{ quizProgressService.correctQuestionsPercentage() }}%)</span></span></h3>
+
+
+<progress class="progress mb-2 is-large" [ngClass]="[quizProgressService.correctQuestionsPercentageColor()]"
+          [value]="quizProgressService.correctQuestionsPercentage()"
+          max="100">
+</progress>
+<div
+  class="is-size-4 mb-6 mt-1 pl-2 is-flex is-hidden-mobile"><span
+  class="mr-5">{{ quizProgressService.correctQuestions() }}
+  / {{ quizProgressService.totalNumberOfQuestions() }}</span> <span
+  class="has-text-weight-bold"> ({{ quizProgressService.correctQuestionsPercentage() }}
+  %)</span></div>
+
+<app-quiz-question [question]="quizProgressService.quizQuestions()[quizProgressService.reviewQuestionIndex()]"
+                   [reviewMode]="true"
+                   [questionNumber]="quizProgressService.reviewQuestionNumber()"
+></app-quiz-question>
+
+<div class="is-hidden-tablet">
+  <hr class="is-bordered">
+  <button class="button is-danger is-large is-fullwidth" (click)="endQuiz()">End Quiz</button>
+</div>
