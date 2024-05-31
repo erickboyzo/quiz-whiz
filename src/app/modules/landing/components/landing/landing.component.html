@@ -2,14 +2,28 @@
   <h1 class="title has-text-centered is-2">
     Let's Play QuizWhiz
   </h1>
-  <h2 class="subtitle is-4 has-text-centered">
-    Select quiz category & difficulty and click button below to start.
+  <h2 class="subtitle is-4 has-text-centered mb-0">
+    QuizWhiz offers a variety of random quizzes to see if you truly are a quiz whiz.
   </h2>
   <br>
+  <h3 class="subtitle is-5 has-text-centered">
+    Choose a category and difficulty, then click the button below to begin.
+  </h3>
   <div class="options is-flex is-justify-content-center is-flex-wrap-wrap p-1 mb-6">
-    <a class="tag m-2  is-info  is-large is-clickable" (click)="open()">{{quizOptionsService.quizOptions().amount}} Questions</a>
-    <a class="tag m-2  is-info  is-large is-clickable" (click)="open()" [innerHTML]="quizOptionsService.categoryLabel()"></a>
-    <a class="tag m-2  is-info  is-large is-clickable" (click)="open()" [innerHTML]="quizOptionsService.difficultyLabel()"></a>
+    <a class="tag m-2 is-info is-large is-clickable" tabindex="0"
+       (click)="open()"
+       (keydown.enter)="open()">{{quizOptionsService.quizOptions().amount}}
+      Questions</a>
+    <a class="tag m-2 is-info is-large is-clickable"
+       tabindex="0"
+       (click)="open()"
+       (keydown.enter)="open()"
+       [innerHTML]="quizOptionsService.categoryLabel()"></a>
+    <a class="tag m-2 is-info is-large is-clickable"
+       tabindex="0"
+       (click)="open()"
+       (keydown.enter)="open()"
+       [innerHTML]="quizOptionsService.difficultyLabel()"></a>
   </div>
   <p class="has-text-centered">
     <button (click)="startQuiz()" class="button is-large is-primary">
@@ -18,7 +32,7 @@
   </p>
 </div>
 
-<app-quiz-options-modal *ngIf="openOptions" (close)="close()"></app-quiz-options-modal>
+<app-quiz-options-modal *ngIf="openOptions" (closeModal)="close()"></app-quiz-options-modal>
 
 
 

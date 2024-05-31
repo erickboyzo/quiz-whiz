@@ -21,7 +21,7 @@ export class QuizQuestionComponent {
   @Output() updateQuestion = new EventEmitter<QuizQuestion>();
 
   answerChange(event: Event, item: string) {
-    const checked = (<HTMLInputElement>event.target).checked
+    const checked = (<HTMLInputElement>event.target).checked;
     this.question.selectedAnswer = checked ? item : '';
     this.updateQuestion.emit(this.question);
   }

@@ -11,5 +11,5 @@ import { AsideQuizOptionsComponent } from '../aside-quiz-options/aside-quiz-opti
   styleUrl: './quiz-options-modal.component.scss'
 })
 export class QuizOptionsModalComponent {
-  @Output() close: EventEmitter<void> = new EventEmitter();
+  @Output() closeModal: EventEmitter<void> = new EventEmitter();
 }

@@ -1,3 +1,15 @@
-.background-color{
-  background: linear-gradient(to top right,  var(--bulma-primary) 10%, #B6F1E9);
+.background-color {
+  background: linear-gradient(to top right, var(--bulma-primary) 10%, #B6F1E9);
+}
+
+@media (prefers-color-scheme: dark) {
+  .background-color {
+    //background: linear-gradient(to top right, var(--bulma-primary) 10%, #00654D);
+    background: var(--bulma-scheme-main-bis);
+
+    //.title, .subtitle {
+    //  color: var(--bulma-body-background-color);
+    //}
+  }
+
 }

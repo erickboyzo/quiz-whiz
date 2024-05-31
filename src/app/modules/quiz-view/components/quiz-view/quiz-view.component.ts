@@ -28,7 +28,7 @@ export class QuizViewComponent {
   }
 
   next() {
-    const currentIndex = this.quizProgressService.nextQuestionNumber() - 1
+    const currentIndex = this.quizProgressService.nextQuestionNumber() - 1;
     this.quizProgressService.updateAnswer(this.update as QuizQuestion, currentIndex);
     this.update = undefined;
   }

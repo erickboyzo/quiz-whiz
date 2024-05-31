@@ -22,7 +22,7 @@ export class QuizOptionsService {
       const selected = difficultyOptions.find(difficulty => difficulty.value === this.quizOptions().difficulty);
       return selected ? selected.label : 'Any Difficulty';
     }
-    return 'Any Difficulty'
+    return 'Any Difficulty';
   });
 
   setSelectedOptions(options: QuizSelectedOptions) {

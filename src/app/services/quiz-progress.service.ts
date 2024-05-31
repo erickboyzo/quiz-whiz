@@ -19,20 +19,20 @@ export class QuizProgressService {
     return this.quizQuestions().length > 0;
   });
   nextQuestion: Signal<QuizQuestion | undefined> = computed(() => {
-    return this.quizQuestions().find(q => !q.selectedAnswer)
+    return this.quizQuestions().find(q => !q.selectedAnswer);
   });
   totalNumberOfQuestions: Signal<number> = computed(() => {
     return this.quizQuestions().length;
   });
   nextQuestionIndex: Signal<number> = computed(() => {
-    return this.quizQuestions().findIndex(q => !q.selectedAnswer)
+    return this.quizQuestions().findIndex(q => !q.selectedAnswer);
   });
   nextQuestionNumber: Signal<number> = computed(() => {
     return this.nextQuestionIndex() >= 0 ? this.nextQuestionIndex() + 1 : 0;
   });
   progressPercentage: Signal<number> = computed(() => {
-    const index = this.quizQuestions().findIndex(q => !q.selectedAnswer)
-    return 100 * index / (this.quizQuestions().length - 1)
+    const index = this.quizQuestions().findIndex(q => !q.selectedAnswer);
+    return 100 * index / (this.quizQuestions().length - 1);
   });
 
   allQuestionsAnswered: Signal<boolean> = computed(() => {
@@ -64,7 +64,7 @@ export class QuizProgressService {
   });
 
   private quizQuestionEffect: EffectRef = effect(() => {
-    sessionStorage.setItem('quizwhiz_q', JSON.stringify(this.quizQuestions()))
+    sessionStorage.setItem('quizwhiz_q', JSON.stringify(this.quizQuestions()));
   });
 
   constructor() {
@@ -78,9 +78,9 @@ export class QuizProgressService {
   updateAnswer(question: QuizQuestion, index: number): void {
     this.quizQuestions.update(questions => {
       const newQuestions = [...questions];
-      newQuestions[index] = question
+      newQuestions[index] = question;
       return newQuestions;
-    })
+    });
   }
 
   updateReviewQuestionIndex(index: number): void {

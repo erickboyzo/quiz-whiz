@@ -3,13 +3,13 @@
   <div class="modal-card">
     <header class="modal-card-head">
       <p class="modal-card-title mb-1">Quiz Options</p>
-      <button class="delete is-large" aria-label="close" (click)="close.emit()"></button>
+      <button class="delete is-large" aria-label="close" (click)="closeModal.emit()"></button>
     </header>
     <section class="modal-card-body">
       <app-aside-quiz-options></app-aside-quiz-options>
     </section>
     <footer class="modal-card-foot is-flex">
-      <button class="button is-large is-success is-fullwidth" (click)="close.emit()">Done</button>
+      <button class="button is-large is-success is-fullwidth" (click)="closeModal.emit()">Done</button>
     </footer>
   </div>
 </div>

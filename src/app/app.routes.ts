@@ -1,5 +1,4 @@
 import { Router, Routes } from '@angular/router';
-import { LandingComponent } from './modules/landing/components/landing/landing.component';
 import { inject } from '@angular/core';
 import { QuizProgressService } from './services/quiz-progress.service';
 

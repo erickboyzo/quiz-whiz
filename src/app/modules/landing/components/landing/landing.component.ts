@@ -4,7 +4,6 @@ import { QuizService } from '../../../../core/services/quiz.service';
 import { AsideQuizOptionsComponent } from '../aside-quiz-options/aside-quiz-options.component';
 import { QuizOptionsModalComponent } from '../quiz-options-modal/quiz-options-modal.component';
 import { NgIf } from '@angular/common';
-import { QuizSelectedOptions } from '../../../../core/interfaces/quiz-selected-options';
 import { QuizOptionsService } from '../../../../services/quiz-options.service';
 
 @Component({
@@ -30,8 +29,6 @@ export class LandingComponent {
         next: value => {
           this.quizProgressService.setQuestions(value);
         },
-        error: error => {
-        }
       });
   }
 
